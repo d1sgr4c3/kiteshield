@@ -30,7 +30,7 @@
   } while(0)
 
 #define STRINGIFY_KEY(key)                                                    \
-  ({ char buf[(sizeof(key.bytes) * 2) + 1];                                   \
+  ({ static char buf[(sizeof(key.bytes) * 2) + 1];                                   \
      for (int i = 0; i < sizeof(key.bytes); i++) {                            \
        sprintf(&buf[i * 2], "%02hhx", key.bytes[i]);                          \
      };                                                                       \
